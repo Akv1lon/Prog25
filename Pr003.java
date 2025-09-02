@@ -26,5 +26,17 @@ class Pr003{
 		vard2= (double)var1/var2;
 		System.out.println("Деление var1 на var2 с переводом в double");
 		System.out.println(vard2);
+	
+		//Простые типы данных
+		byte byte_var;
+		System.out.println("Value byte_var:");
+		for (int i=100; i<=150; i++) {
+			byte_var=(byte)i;
+			System.out.print(byte_var + ", ");
+		}
+		short short_var;
+		System.out.println("Тип данных short - 16 битный, значения от -32 768 до 32 767");
+		System.out.println("Тип данных int - 32 битный");
+		System.out.println("Тип данных long - 64 битный");
 	}
 }
