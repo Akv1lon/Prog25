@@ -46,10 +46,32 @@ class Pr003{
 		long_var = (long)int_var*int_var;
 		System.out.println("int_var = " + int_var);
 		System.out.println("long_var = " + long_var);
+		//Вычисление гипотенузы при помощи метода Math.sqrt()	
 		double a = 3.0, b = 4.0;
 		
 		double c = Math.sqrt(a*a + b*b);
 				
 		System.out.println("Гипотенуза = " + c);
+
+		//Использование символьного типа данных
+		char ch;
+		ch = 'X';
+		System.out.println("Значение ch: " + ch);
+		
+		int_var = (int)ch;
+		System.out.println("int_var = " + int_var);
+		
+		ch++;	
+		System.out.println("ch = " + ch);
+		
+		ch = 90;
+		System.out.println("ch = " + ch);
+		
+		ch = 'А';
+		for (int i = (int) ch; i < (int) 'А' + 66; i++) 
+			System.out.print(ch++ + ", ");
+		
+		System.out.println();
+
 	}
 }
