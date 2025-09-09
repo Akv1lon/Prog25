@@ -38,5 +38,18 @@ class Pr003{
 		System.out.println("Тип данных short - 16 битный, значения от -32 768 до 32 767");
 		System.out.println("Тип данных int - 32 битный");
 		System.out.println("Тип данных long - 64 битный");
+		
+		//Пример исользования типа данных long
+		long long_var = 4000000000L;
+		int int_var =2000000000;
+		int_var = int_var*int_var;
+		long_var = (long)int_var*int_var;
+		System.out.println("int_var = " + int_var);
+		System.out.println("long_var = " + long_var);
+		double a = 3.0, b = 4.0;
+		
+		double c = Math.sqrt(a*a + b*b);
+				
+		System.out.println("Гипотенуза = " + c);
 	}
 }
