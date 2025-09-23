@@ -65,51 +65,51 @@ class Pr006 {
 			}
 
 	//Оператор switch
-	System.out.println("\nДемнострация работы оператора switch()");
-	for(i=0; i<10; i++)
-		switch(i){
-			case 0:
-				System.out.println("i=0");
-				break;
-			case 1:
-				System.out.println("i=1");
-				break;
-			case 2:
-				System.out.println("i=2");
-				break;
-			case 3:
-				System.out.println("i=3");
-				break;
-			case 4:
-				System.out.println("i=4");
+		System.out.println("\nДемнострация работы оператора switch()");
+		for(i=0; i<10; i++)
+			switch(i){
+				case 0:
+					System.out.println("i=0");
+					break;
+				case 1:
+					System.out.println("i=1");
+					break;
+				case 2:
+					System.out.println("i=2");
+					break;
+				case 3:
+					System.out.println("i=3");
+					break;
+				case 4:
+					System.out.println("i=4");
+					break;
+			default:
+					System.out.println("i>=5");
+					break;
+			}
+		//Вложенные операторы switch
+		System.out.println();
+		char ch2 ='R';
+		char ch1 ='A';
+		switch(ch2){
+			case 'A': 
+				System.out.println("Значение A внешнего оператора switch");
+				switch(ch1){
+					case 'A':
+						System.out.println("Значение A внутреннего оператора switch");
+						break;
+				}
+				case 'R':
+					System.out.println("Значение R внешнего оператора switch");
+					switch(ch1){
+						case 'A':
+							System.out.println("Значение А внутреннего оператора switch");
+							break;
+				}
 				break;
 			default:
-				System.out.println("i>=5");
-				break;
-		}
-	//Вложенные операторы switch
-	System.out.println();
-	char ch2 ='R';
-	char ch1 ='A';
-	switch(ch2){
-		case 'A': 
-			System.out.println("Значение A внешнего оператора switch");
-			switch(ch1){
-				case 'A':
-					System.out.println("Значение A внутреннего оператора switch");
-					break;
-			}
-		case 'R':
-			System.out.println("Значение R внешнего оператора switch");
-			switch(ch1){
-				case 'A':
-					System.out.println("Значение А внутреннего оператора switch");
-					break;
-			}
-			break;
-		default:
 				System.out.println("Значение по умолчанию для внешнего switch()");
-	}
+		}
 		//Оператор цилка for
 		System.out.println();
 		double num, sroot, rerr;
@@ -169,5 +169,28 @@ class Pr006 {
 		for(int ii=1; ii<=10;sum+=ii++);
 		System.out.println("Значение sum: " + sum);
 		//System.out.println("Значение ii: " + ii);
+
+		//Цикл while
+		System.out.println();
+		char ch3 = 'a';
+		
+		while(ch3<='z'){
+			System.out.print(ch+" ");
+			ch3++;
+		}
+		
+		System.out.println();
+		System.out.println();
+		int e, result;
+
+		for(int ii=0; ii<10; ii++){
+			result=1;
+			e=ii;
+			while(e>0){
+				result *=2;
+				e--;
+			}
+			System.out.println("2 в степени " + ii + " равно " + result);
+		}
 	}
 }
