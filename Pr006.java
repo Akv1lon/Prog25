@@ -2,12 +2,13 @@
 class Pr006 {
 	public static void main(String args[])
 		throws java.io.IOException{
-			char ch, temp;
+			char ch, temp=' ';
 			System.out.print("Введите символ - ");
 			ch= (char) System.in.read();
 			System.out.println("Введен символ - " + ch);
-			temp = (char) System.in.read();
-
+			for(;temp != '\n';)
+				temp = (char) System.in.read();
+			/*
 			//Угадывание значения символьной переменной
 			char answer = 'D';
 			System.out.println("Введите символ: ");
@@ -23,6 +24,8 @@ class Pr006 {
 				else 
 					System.out.println("Нужный символ дальше от конца");
 			}
+			*/
+
 			//Вложенный оператор if
 			int i=10,j=15,k=15,a=0,b=77,c,d=88;
 			c=0;
@@ -86,9 +89,9 @@ class Pr006 {
 		}
 	//Вложенные операторы switch
 	System.out.println();
-	ch ='R';
+	char ch2 ='R';
 	char ch1 ='A';
-	switch(ch){
+	switch(ch2){
 		case 'A': 
 			System.out.println("Значение A внешнего оператора switch");
 			switch(ch1){
@@ -120,5 +123,51 @@ class Pr006 {
 			System.out.println("Ошибка округления: " + rerr);
 			System.out.println();
 			}
+		System.out.println();
+		int x;
+		for(x=100; x>-100; x -=5)
+			System.out.println(x);
+
+		System.out.println("\nПример цикла, тело которого не выполняется ни разу");
+		for(x=100;x>100;x-=5)
+			System.out.println(x);
+		System.out.println("После цикла for");
+
+		System.out.println();
+
+		for(i=0, j=10; i<j; i++, j--)
+			System.out.println("i= " + i + " j = " + j);
+		
+		//Чтение символов с клавиатуры внутри цикла for
+		System.out.print("\nВведите \'S\' для остановки цикла чтения с клавиатуры ");
+		for(i=0; (char) System.in.read() != 'S'; i++) {
+			System.out.println("Итерация №" + i);
+			System.out.print("Введите символ: ");
+			temp = (char) System.in.read();
+		}
+		System.out.println();
+		//Пропуск отедльных частей в определении цикла for
+		for(i=0;i<10;){
+			System.out.println("Итерация №" + i);
+			i++;
+		}
+		
+		//Бесконечный цикл
+		System.out.println();
+		for(;;){
+			System.out.println("Итерация");
+			System.out.println("Для остановки цикла введите \'q\'");
+			temp = (char) System.in.read();
+			if (temp=='q') break;
+		}
+		//Циклы без тела
+		int sum = 0;
+		for(i=1;i<=5;sum+=i++);
+		System.out.println("Значение sum: " + sum);
+		
+		//Объявление параметра цикла внутри цикла
+		for(int ii=1; ii<=10;sum+=ii++);
+		System.out.println("Значение sum: " + sum);
+		//System.out.println("Значение ii: " + ii);
 	}
 }
