@@ -192,5 +192,46 @@ class Pr006 {
 			}
 			System.out.println("2 в степени " + ii + " равно " + result);
 		}
+		
+		temp = (char) System.in.read();
+		while (temp != '\n') {
+			temp = (char) System.in.read();
+		}
+		
+		//Цикл do - while()
+		System.out.println();
+		do {
+			System.out.print("Введите символ: ");
+			ch3 = (char) System.in.read();
+		} while(ch3 != 'q');
+	
+		//Угадывание символа при помощи do - while()
+		temp = (char) System.in.read();
+		while (temp != '\n') {
+			temp = (char) System.in.read();
+		}	
+		System.out.println();	
+		char answer = 'R';
+		char ch4;
+		do {
+			System.out.println("Угадайте символ");
+			System.out.print("Введите символ с клавиатуры: ");
+
+			ch3 = (char) System.in.read();
+			do {
+				temp = (char) System.in.read();
+			} while(temp != '\n');
+
+			if(ch3==answer) System.out.println("Угадали");
+			
+			else {
+				System.out.print("Невенрно, символ находится ");
+				if(ch3<answer)
+					System.out.println("ближе к концу алфавита");
+				else
+					System.out.println("ближе к началу алфавита");
+				System.out.println("Снова введите символ: \n");
+			}
+		} while(answer != ch3);
 	}
 }
