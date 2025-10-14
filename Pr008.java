@@ -6,6 +6,9 @@ class Car{
 	double range() { //Метод вычисления расстояния, которое автомобиль может проехать на полном баке
 		return  ((double)V*100) / rash;
 	}
+	double gasRate(int km){
+		return (double)rm*rash
+	}
 }
 class ChkNum{
 	boolean isEven(int x) {
@@ -31,9 +34,13 @@ class Pr008{
 		System.out.println("Количество пассажиров bmw x5: " + bmw.pass);
 		System.out.println("Объем бака у bmw x5" + bmw.V + " л.");
 		System.out.println("Расход топлива у bmw x5 " + bmw.rash + " л/100км");
-		
+		System.out.println("bmw x5 потратит на 100 км." + bmw.gasRate(100) + " литров топлива");
 		//Вызов метода внутри System.out.println()
 		System.out.println("bmw x5 проедет на полном баке " + bmw.range() + " км");
+		
+		int distance = 3350;
+
+		System.out.println("bmw x5 потратит " + bmw.gasRate(distance) + " литров топлива чтобы доехать до москвы");
 
 		System.out.println("\nИнформация о mercedes slc 43: ");
 		
@@ -47,6 +54,8 @@ class Pr008{
 		
 		range = mercedes.range();	
 		System.out.println("mercedes slc 43 проедет на полном баке " + range + " км");
+
+		System.out.println("mercedes slc 43 потраит" + mercedes.gasRate(distance) + "литров топлива, чтобы доехать до Москвы");
 		
 		//Хранение значений в простых типах переменных
 		int p1=50, p2=75;
