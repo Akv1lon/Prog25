@@ -3,11 +3,24 @@ class Car{
 	int pass; //Количество пассажиров с водителем
 	int V; //Емкость бака в литрах
 	double rash; //расход топлива л/100км
+	Car(){
+		pass = 0;
+		V = 0;
+		rash = 0.0;
+	}
+
+	Car(int p, int v, double r){
+		pass = p;
+		V = v;
+		rash = r;
+	}
+
+
 	double range() { //Метод вычисления расстояния, которое автомобиль может проехать на полном баке
 		return  ((double)V*100) / rash;
 	}
 	double gasRate(int km){
-		return (double)rm*rash
+		return (double)km*rash;
 	}
 }
 class ChkNum{
