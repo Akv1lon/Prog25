@@ -93,6 +93,37 @@ class Pr011{
 			val1 = val1 >> 1;
 		}
 		System.out.println();
+		
+		//Оператор ? -  замена if() else
+		int value = 2, absValue;
+		if (value <0)
+			absValue = -value;
+		else
+			absValue = value;
+
+		System.out.println("Абсолютное значение value: " + absValue);
+		
+		absValue = value < 0 ? -value : value;
+		
+		System.out.println("Значение value: " + value + "\nАбсолютное значение value: " + absValue);
+		
+		//Использование ? для предотвращения запрщенных арифметических операций
+		//Запрещенная операция - деление на ноль value = 10/0
+		
+		System.out.println();
+
+		int result;
+		for(int i = -5; i < 6; i++) {
+			result = i != 0 ? 100/i : 0;
+		if (i != 0)
+			System.out.println("100/ " + i + " равно " + result);
+		}
+
+		System.out.println();
+		//Аналогичное решение в альтернативной форме
+		for(int i = -5; i < 6; i++)
+			if(i != 0 ? true : false)
+				System.out.println("100 / " + i + " равно " + 100/i);
 	}
 }
 
