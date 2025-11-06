@@ -120,6 +120,42 @@ class ErrorInfo{
 			return new Err("Неверное значение ошибки", 0);
 	}
 }
+class Overload {
+	void ovlDemo(){
+		System.out.println("Метод запущен без параметра");
+	}
+	void ovlDemo(int a) {
+		System.out.println("Один параметр: " + a);
+	}
+
+	int ovlDemo(int a, int b){
+		System.out.println("Два целых параметра: " + a + " " + b);
+		return a+b;
+	}
+
+	double ovlDemo(double a, double b) {
+		System.out.println("Два double параметра: " + a + " " + b);
+		return a+b;
+	}
+}
+//Круг, квадрат, прямоугольник
+class Square {
+	void sqrSlv() {
+		System.out.println("Нет параметров");
+	}
+	int srqSlv(int a){
+		System.out.println("Принят 1 int параметр" + a + " -> квадрат. Ответ: " + a*a);
+		return a*a;
+	}
+	int sqrSlv(int a, int b){
+		System.out.println("Принято 2 int параметра: " + a + ", " + b + " -> прямоугольник. Ответ: " + a*b);
+		return a*b;
+	}
+	double sqrSlv(double a){
+		System.out.println("Принят 1 double параметр: " + a + " -> круг. Ответ : " + 3.14*a*a);
+		return 3.14*a*a;
+	}
+}
 class Pr012{
 	public static void main(String args[]){
 		MyClass ob = new MyClass();
@@ -189,5 +225,33 @@ class Pr012{
 		
 		e = err1.getErrorInfo(7);
 		System.out.println(e.msg + " уровень: " + e.severity);
+		
+		//Перегрузка методов ovlDemo()
+		Overload ob4 = new Overload();
+		int resI;
+		double resD;
+
+		ob4.ovlDemo();
+		System.out.println();
+		
+		ob4.ovlDemo(3);
+		System.out.println();
+		
+		ob4.ovlDemo(7,8);
+		System.out.println("Возвращаемое значение: " + ob4.ovlDemo(7,8));
+		
+		ob4.ovlDemo(2.7,3.4);
+		System.out.println("Возвращаемое значение: " + ob4.ovlDemo(2.7,3.4));
+		
+		System.out.println();
+		Square ob5 = new Square();
+
+		ob5.sqrSlv();
+		//Круг
+		double rndA = ob5.sqrSlv(5.5);
+		//Прямоугольник
+		int recA = ob5.sqrSlv(3, 6);
+		//Квадрат
+		ob5.sqrSlv(5);
 	}
 }
