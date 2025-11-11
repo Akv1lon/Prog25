@@ -1,11 +1,32 @@
 class Queue{
 	private char q[]; //Ссылка на массив, хранящий элементы очереди
 	private int putloc, getloc; //Указатели на начало и на конец очереди
-	
+	//Конструктор для создания пустой очереди
 	Queue(int size) {
 		q = new char[size+1];
 	}
 
+	//Конструктор для копирования существующей очереди в новую очередь
+	
+	Queue(Queue ob){
+		putloc = ob.putloc;
+		getloc = ob.getloc;
+		q = new char[ob.q.length];
+
+		for(int i = getloc+1; i <= putloc; i++)
+			q[i] = ob.q[i];
+	}
+	
+	//Конструктор для помещения значений из массива в новую очередь
+	
+	Queue(char a[]){
+		putloc = 0;
+		getloc = 0;
+		q = new char[a.length+1];
+
+		for(int i = 0; i < a.length; i++)
+			put(a[i]);
+	}
 	//Метод для помещения символа в очередь
 	void put(char ch){
 		if(putloc == q.length-1){
@@ -76,5 +97,44 @@ class QDemo {
 		test.put('A');
 		System.out.println("Извлечение символа из очереди test" + test.get());
 		}
+
+		//Создание пустой очереди
+		Queue q1 = new Queue(10);
+
+		char arr1[] = {'Z', 'X', 'C', 'V', 'B', 'N'};
+		//Создание очереди на основе массива arr1{}
+		Queue q2 = new Queue(arr1);
+
+		//Размещение символов в очереди q1
+		for(i = 0; i < 10; i++)
+			q1.put((char) ('Y' + i));
+
+		//Создание очереди q3 на основе очереди q1
+		Queue q3 = new Queue(q1);
+
+		//Отображаем содержимое очередей q1, q2, q3
+		System.out.println();
+		System.out.print("Очередь q1: ");
+		for(i = 0; i < 10; i++){
+			ch = q1.get();
+			System.out.print(ch);
+		}
+		System.out.println("\n");
+		
+		System.out.print("Очередь q2: ");
+		for(i = 0; i < 10; i++){
+			ch = q2.get();
+			System.out.print(ch);
+		}
+		System.out.println();
+		
+		System.out.print("Очередь q3: ");
+		for(i = 0; i < 10; i++){
+			ch = q3.get();
+			System.out.print(ch);
+		}
+		System.out.println();
+
+		
 	}
 }
