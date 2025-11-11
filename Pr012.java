@@ -137,9 +137,44 @@ class Overload {
 		System.out.println("Два double параметра: " + a + " " + b);
 		return a+b;
 	}
+	//Метод для демонстрации перегрузки методов при автоматическом переобразовании типов
+	void ovlDemo2(int x) {
+		System.out.println("Выван метод ovlDemo2(int): " + x);
+	}
+	void ovlDemo2(double x) {
+		System.out.println("Выван метод ovlDemo2(double): " + x);
+	}
+	void ovlDemo2(byte x) {
+		System.out.println("Выван метод ovlDemo2(byte): " + x);
+	}
 }
 //Круг, квадрат, прямоугольник
 class Square {
+	int w, h;
+	double R;
+	String type;
+
+	Square() {
+		w = h = 0;
+		R = 0.0;
+		type = "Неопределенная фигура";
+	}
+	Square(int a) {
+		w = a;
+		h = a;
+		w = h = a;
+		type = "Квадрат";
+	}
+	Square(int a, int b){
+		w = a;
+		h = b;
+		type = "Прямоугольник";
+	}
+	Square(double r){
+		w = h;
+		R = r;
+		type = "Круг";
+	}
 	void sqrSlv() {
 		System.out.println("Нет параметров");
 	}
@@ -147,13 +182,46 @@ class Square {
 		System.out.println("Принят 1 int параметр" + a + " -> квадрат. Ответ: " + a*a);
 		return a*a;
 	}
+	double sqrSlv(double r){
+		System.out.println("Принят 1 double параметр: " + r + " -> круг. Ответ : " + 3.14*r*r);
+		return 3.14*r*r;
+	}
 	int sqrSlv(int a, int b){
 		System.out.println("Принято 2 int параметра: " + a + ", " + b + " -> прямоугольник. Ответ: " + a*b);
 		return a*b;
 	}
-	double sqrSlv(double a){
-		System.out.println("Принят 1 double параметр: " + a + " -> круг. Ответ : " + 3.14*a*a);
-		return 3.14*a*a;
+}
+class Overload2 {
+	int x;
+	Overload2() {
+		System.out.println("Выполняется Overload2");
+		x = 0;
+	}
+	Overload2(int i) {
+		System.out.println("Выполняется Overload2(int)");
+		x = i;
+	}
+	Overload2(double i) {
+		System.out.println("Выполняется Overload2(double)");
+		x = (int) i;
+	}
+	Overload2(int i, int j) {
+		System.out.println("Выполняется Overload2(double)");
+		x = i + j;
+	}
+}
+class Summation{
+	//Созадние одного объекта при помощи передачи конструктору уже существуюущего
+	int sum;
+
+	Summation(int num){
+		sum = 0;
+		for(int i=1; i<=num; i++)
+			sum +=i;
+	}
+
+	Summation(Summation ob){
+		sum = ob.sum;
 	}
 }
 class Pr012{
@@ -239,7 +307,7 @@ class Pr012{
 		
 		ob4.ovlDemo(7,8);
 		System.out.println("Возвращаемое значение: " + ob4.ovlDemo(7,8));
-		
+	
 		ob4.ovlDemo(2.7,3.4);
 		System.out.println("Возвращаемое значение: " + ob4.ovlDemo(2.7,3.4));
 		
@@ -252,6 +320,48 @@ class Pr012{
 		//Прямоугольник
 		int recA = ob5.sqrSlv(3, 6);
 		//Квадрат
-		ob5.sqrSlv(5);
+		//int sqrA = ob5.sqrSlv(4);
+		
+		//Демонстрация автоматичесого преобразования типов при перегрузке метода ovlDemo2()
+		int i1 = 5;
+		double d1 = 10.1;
+		byte b1 = 7;
+		short s1 = 9;
+		float f1 = 12.1F;
+
+		ob4.ovlDemo2(i1);
+		ob4.ovlDemo2(d1);
+		ob4.ovlDemo2(b1);
+		ob4.ovlDemo2(s1);
+		ob4.ovlDemo2(f1);
+
+		//Перегрузка кострукторов
+		System.out.println();
+		Overload2 ob9 = new Overload2();
+		Overload2 ob6 = new Overload2(100);
+		Overload2 ob7 = new Overload2(22.3);
+		Overload2 ob8 = new Overload2(2,8);
+		
+		System.out.println("ob9 = " + ob9.x);
+		System.out.println("ob6 = " + ob6.x);
+		System.out.println("ob7 = " + ob7.x);
+		System.out.println("ob8 = " + ob8.x);
+		
+		//Демонстрация создания объекта на базе существующего объекта
+		System.out.println();
+		Summation s3 = new Summation(10);
+		Summation s2 = new Summation(s3);
+	
+		System.out.println("s3 = " + s3.sum);
+		System.out.println("s2 = " + s2.sum);
+		
+		Square figure1 = new Square();
+		Square figure2 = new Square(2, 2);
+		Square figure3 = new Square(3, 2);
+		Square figure4 = new Square(4.2);
+		System.out.println("\nТип фигуры " + figure1.type);
+		System.out.println("\nТип фигуры " + figure2.type);
+		System.out.println("\nТип фигуры " + figure3.type);
+		System.out.println("\nТип фигуры " + figure4.type);
 	}
 }
