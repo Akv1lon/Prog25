@@ -224,6 +224,26 @@ class Summation{
 		sum = ob.sum;
 	}
 }
+class Factorial {
+	//Рекурсивный метод вычисления факториала
+	int factR(int n) {
+		int result;
+
+		if (n==1)
+			return 1;
+		result = factR(n-1) * n;
+		return result;
+	}
+	//Вычисление факториала итеративный метод
+	int factI(int n) {
+		int t, result;
+
+		result = 1;
+		for(t=1; t <= n; t++) 
+			result *= t;
+		return result;
+	}
+}
 class Pr012{
 	public static void main(String args[]){
 		MyClass ob = new MyClass();
@@ -363,5 +383,18 @@ class Pr012{
 		System.out.println("\nТип фигуры " + figure2.type);
 		System.out.println("\nТип фигуры " + figure3.type);
 		System.out.println("\nТип фигуры " + figure4.type);
+
+		//Вычисление факториала с помощью рекурсии, цикла 
+		
+		Factorial f = new Factorial();
+		System.out.println("\nВычисление рекурсивным методом: ");
+		System.out.println("Факториал 3 равен " + f.factR(3));
+		System.out.println("Факториал 7 равен " + f.factR(7));
+		System.out.println("Факториал 10 равен " + f.factR(10));
+		
+		System.out.println("\nВычисление итеративным методом: ");
+		System.out.println("Факториал 3 равен " + f.factI(3));
+		System.out.println("Факториал 7 равен " + f.factI(7));
+		System.out.println("Факториал 10 равен " + f.factI(10));
 	}
 }
