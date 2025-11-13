@@ -17,6 +17,21 @@ class StaticDemo {
 Статические переменных могут использовать только статические методы
 */
 }
+class StaticBlock{
+	static double rootOf2;
+	static double rootOf3;
+	int a;
+	static {
+		System.out.println("\nВнутри статического блока");
+		rootOf2 = Math.sqrt(2.0);
+		rootOf3 = Math.sqrt(3.0);
+	}
+	StaticBlock(String msg) {
+		a = 200;
+		System.out.println(msg + " Значение а - " + a);
+		System.out.println("Значение rootOf в конструкторе: " + StaticBlock.rootOf2);
+	}
+}
 class Pr013{
 	public static void main(String args[]){
 		StaticDemo ob1 = new StaticDemo();
@@ -43,5 +58,12 @@ class Pr013{
 		StaticDemo.val = 4;
 		System.out.println("val = " + StaticDemo.val);
 		System.out.println("Значение от valDiv2 = " + StaticDemo.valDiv2());
+
+		//Демонстрация статического блока
+		StaticBlock ob = new StaticBlock("Внутри конструктора");
+
+		System.out.println("Квадратный корень из 2: " + StaticBlock.rootOf2);
+		System.out.println("Квадратный корень из 3: " + StaticBlock.rootOf3);
+
 	}
 }
